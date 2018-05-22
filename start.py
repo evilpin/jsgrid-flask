@@ -33,11 +33,9 @@ def updatedata():
 @app.route('/api/database', methods=['POST',])
 def insertdata():
     data = load_data()
-    newdata = request.json
-    newdata['id'] = len(data) + 1
-    data.append(newdata)
+    data.append({**request.json, 'id': 1+len(data)})
     write_data(data)
-    return jsonify(newdata)
+    return jsonify(data[-1])
 
 @app.route('/api/database', methods=['DELETE',])
 def deletedata():
