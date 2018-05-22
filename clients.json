@@ -1,0 +1,44 @@
+[
+    {
+        "Address": "Clay Road 92",
+        "Age": 25,
+        "Married": false,
+        "Name": "Otto Clay",
+        "id": 1
+    },
+    {
+        "Address": "Hakkebakkeskogen 12",
+        "Age": 45,
+        "Married": true,
+        "Name": "Connor Johnston",
+        "id": 2
+    },
+    {
+        "Address": "Ap #365-8835 Integer St.",
+        "Age": 29,
+        "Married": false,
+        "Name": "Lacey Hess",
+        "id": 3
+    },
+    {
+        "Address": "Wonderway 1",
+        "Age": 56,
+        "Married": true,
+        "Name": "Timothy Henson",
+        "id": 4
+    },
+    {
+        "Address": "Apekattveien 32",
+        "Age": 32,
+        "Married": false,
+        "Name": "Ramona Benton",
+        "id": 5
+    },
+    {
+        "Address": "Snittveien 42",
+        "Age": 42,
+        "Married": true,
+        "Name": "Ola Nordmann",
+        "id": 6
+    }
+]
