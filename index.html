@@ -39,10 +39,13 @@
                 },
                 updateItem: function(item) {
                     var d = $.Deferred();
+                    console.log(item);
                     $.ajax({
                         url: "/api/database",
-                        data: item,
+                        data: JSON.stringify(item),
                         type: "PUT",
+                        dataType: "json",
+                        contentType: "application/json",
                     }).done(function(response) {
                         d.resolve(response);
                     });
@@ -63,7 +66,9 @@
                     var d = $.Deferred();
                     $.ajax({
                         url: "/api/database",
-                        data: item,
+                        data: JSON.stringify(item),
+                        dataType: "json",
+                        contentType: "application/json",
                         type: "POST",
                     }).done(function(response) {
                         d.resolve(response);

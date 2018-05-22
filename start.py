@@ -22,34 +22,22 @@ def getdata():
 
 @app.route('/api/database', methods=['PUT',])
 def updatedata():
-    updated = request.form
-    updated_id = int(updated['id'])
     data = load_data()
     for i in range(len(data)):
-        elem = data[i]
-        if elem.get('id') == int(updated['id']):
-            elem['Address'] = updated['Address']
-            elem['Age'] = int(updated['Age'])
-            elem['Married'] = updated['Married'] == "true"
-            elem['Name'] = updated['Name']
+        if data[i].get('id') == request.json['id']:
+            data[i].update(request.json)
     write_data(data)
-    return jsonify(request.form)
+    return jsonify(request.json)
 
 
 @app.route('/api/database', methods=['POST',])
 def insertdata():
     data = load_data()
-    newdata = {
-        'id': len(data) + 1,
-        'Name': request.form['Name'],
-        'Age': int(request.form['Age']),
-        'Married': request.form['Married']=="true",
-        'Address': request.form['Address'],
-    }
+    newdata = request.json
+    newdata['id'] = len(data) + 1
     data.append(newdata)
     write_data(data)
     return jsonify(newdata)
-
 
 @app.route('/api/database', methods=['DELETE',])
 def deletedata():
@@ -64,7 +52,7 @@ def deletedata():
 
 @app.route("/")
 def index():
-    return render_template("index.html.j2")
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True, host='0.0.0.0')
